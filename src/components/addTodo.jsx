@@ -22,15 +22,19 @@ class AddTodo extends Component {
 
     render() { 
         return ( 
-                <form onSubmit={this.onSubmit}>
-                    <div className="input-group mb-3">
-                        <input type="text" className="form-control" name="title" onChange={this.onChange}
-                        value={this.state.title}/>
-                        <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="submit">Add</button>
+            <div className="row">
+                <div className="col-7 mx-auto">
+                    <form onSubmit={this.onSubmit}>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" name="title" onChange={this.onChange}
+                            value={this.state.title}/>
+                            <div className="input-group-append">
+                                <button className="btn btn-outline-secondary" type="submit">Add</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+            </div>
          );
     }
 }

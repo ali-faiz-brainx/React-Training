@@ -8,6 +8,14 @@ class Main extends Component {
         todos: []
      }
 
+     edit = (id, title) =>{
+        this.setState(this.state.todos.map(todo => {
+            if(todo.id === id){
+                todo.title=title;
+            }
+        }))
+    }
+
      markChange = (id) =>{
         this.setState(this.state.todos.map(todo => {
             if(todo.id===id){
@@ -24,7 +32,8 @@ class Main extends Component {
         const newTodo = {
             id: uuid(),
             title: title,
-            completed: false
+            completed: false,
+            update: false
         }
         this.setState({todos: [...this.state.todos, newTodo]});
 
@@ -38,15 +47,11 @@ class Main extends Component {
                         <div className="row">
                             <h1 className="col-12">TodoList</h1>
                         </div>
-                        <div className="row">
-                            <div className="col-7 mx-auto">
                             <AddTodo addTodo={this.addTodo}/>
-                            </div>
-                        </div>
                         <div className="row">
                             <div className="col-7 mx-auto">
                                 <TodoList todo_list={this.state.todos} markChange={this.markChange} 
-                                delItem={this.delItem}/>
+                                delItem={this.delItem} edit={this.edit}/>
                             </div>
                         </div>
                     </div>
